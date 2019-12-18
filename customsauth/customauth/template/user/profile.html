@@ -1,0 +1,11 @@
+{%extends 'blog/home.html'%}
+{%block content%}
+{{user.username}}
+{{user.id}}<br><br>
+{%for post in p%}
+{{post.title}}
+{{post.content}}
+{{post.author}}<br>
+{%endfor%}
+{%endblock%}
+<!-- <a href="{%url 'logout'%}">logout</a> -->

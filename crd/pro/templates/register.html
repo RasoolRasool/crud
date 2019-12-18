@@ -1,0 +1,9 @@
+<form action="/savedetails/" method="POST">
+    {%csrf_token%}
+    <input type="text" name="username" placeholder="username"><br><br>
+    <input type="text" name="name" placeholder="name"><br><br>
+    <input type="text" name="salary" placeholder="salary"><br><br>
+    <!-- <input type="text" name="eaddr" placeholder="addresss"><br><br> -->
+    <input type="password" name="password" placeholder="password">
+    <input type="submit" value="signup">
+</form>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+        <text align='center'>welcome  {{msg.username}}<br>
+            <table>
+                <tr><a href="/viewprofile/?id={{msg.id}}">view profile</a> </tr>&nbsp;&nbsp;&nbsp;
+                <tr><a href="/updateprofile/?id={{msg.id}}">update profile</a></tr>&nbsp;&nbsp;&nbsp;
+                <tr><a href="/deleteprofile/?id={{msg.id}}">delete profile</a></tr>&nbsp;&nbsp;&nbsp;
+            </table>
+            <table>
+                    {%if profile%}
+                    <tr>
+                        <td>
+                            {{profile.username}}
+                        </td>
+                        <td>
+                                {{profile.name}}
+                            </td>
+                            <td>
+                                    {{profile.salary}}
+                                </td>
+                    </tr>
+                    {%endif%}
+
+                    {%if update %}
+                    <form action="/updatedetails/" method="POST">
+                        {%csrf_token%}
+                        <input type="text" name="username" value='{{update.username}}'placeholder="username"><br><br>
+                        <input type="text" name="name" value="{{update.name}}" placeholder="name"><br><br>
+                        <input type="text" name="salary" value='{{update.salary}}'placeholder="salary"><br><br>
+                         <!-- <input type="text" name="eaddr" value='{{update.eaddr}}'placeholder="addresss"><br><br> -->
+                        <input type="password" name="password" value='{{update.password}}'placeholder="password">
+                        <input type="submit" value="update">
+                    </form>
+                    {%endif%}
+
+                    {%if delete %}
+                    <form action="/delete/" method="POST">
+                        {%csrf_token%}
+                        <table>
+                            <tr><td>{{delete.username}}</td></tr>
+                           <tr><td> <input type="radio" value="Yes" name='yes'>Yes</td>
+                           <td> <input type="radio" value="No" name='yes'checked >NO</td></tr>
+                           <input type="hidden" name="id" value="{{delete.id}}">
+                           <tr><td><input type="submit" value="delete"></td></tr>
+                    </form>
+                    {%endif%}
+                </table>
+            </table>
+</body>
+</html>

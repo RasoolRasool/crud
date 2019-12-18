@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+        <h1>Contacts</h1>
+
+        <table>
+        <thead>
+        <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Address</th>
+        <th>Phone</th>
+        <th>Actions</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for contact in object_list %}
+        <tr>
+        <td>{{ contact.name }}</td>
+        <td>{{ contact.email }}</td>
+        <td>{{ contact.address }}</td>
+        <td>{{contact.phone}}</td>
+        <td>{{contact.actions}}</td>
+        <td>
+           <a href="detail/{{contact.id}}">Detail</a>
+           <a href="create/{{contact.id}}">create</a>
+           <a href="update/{{contact.id}}">update</a>
+           <a href="delete/{{contact.id}}">Delete</a>
+        </td>
+        </tr>
+        
+        {% endfor %}
+        </tbody>
+        </table>
+    
+</body>
+</html>
